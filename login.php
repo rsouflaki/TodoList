@@ -1,6 +1,6 @@
 <?php require_once 'header.php'; ?>
 
-<form id="jsform" method="post" action="user-actions.php">
+<form method="post" action="user-actions.php">
 
     <h1>Member Login</h1>
 
@@ -13,7 +13,7 @@
         <input type="password" name="passwd" maxlength="50" value="">
     </p>
     <p>
-        <input type="button" name="user-action" value="Login" onClick="submitform()">
+        <input type="submit" name="user-action" value="Login">
     </p>
     <p>
         <input type="submit" name="user-action" value="Logout">
