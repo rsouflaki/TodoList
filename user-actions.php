@@ -7,6 +7,7 @@ if (isset($_POST['user-action']))
     {
         case 'Login':
             echo "skata";
+            echo $_POST['email'];
             break;
 
         case 'Logout':
