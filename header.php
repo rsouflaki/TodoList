@@ -10,6 +10,7 @@
     <body id="wrapper">
         <div id="pagestyle">
             <div id="menulogo">
+            
                 <a href="login.php" class="menuLogoLink">
                     <img src="images/logo.jpg" alt="Company Logo" border="0" align="top" width="48" height="48" />
                     PHP Exercise

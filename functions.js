@@ -1,12 +1,15 @@
-function checkform() 
-{
-    alert('ton poulo');
-    return true;
-}
-
-function achtung() 
+function checkloginform() 
 {
     <!--
-    alert("ton poulo");
+    alert('ton poulo');
+    return true;
+    //-->
+}
+
+function checksignupform() 
+{
+    <!--
+    alert('ton poulo');
+    return true;
     //-->
 }

@@ -1,0 +1,88 @@
+#wrapper
+{
+    width: 1024px;
+    margin: 0 auto;
+    
+}
+
+#pagestyle
+{
+    text-align: left;
+    background-color:yellow;
+
+}
+
+#menulogo
+{
+    font-size:40px;
+}
+
+#menubar
+{ 
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+    width:100%;
+    border-collapse:collapse;
+    border:1px solid #98bf21;
+    font-size:20px;
+    text-align:center;
+    padding-top:5px;
+    padding-bottom:4px;
+    background-color:#A7C942;
+    color:#ffffff;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+#menubar th
+{ 
+}
+
+#footerbar
+{
+    text-align:center;
+    position:relative;
+    top:0px;
+    left:512px;
+    width:50%;
+}
+
+#footerbar th
+{
+}
+
+.hidden
+{
+    display:none;
+}
+
+a.menuLogoLink:link    
+{
+    /* Applies to unvisited links of class menuLogo */
+    text-decoration:  none;
+    color: black;
+  } 
+  
+a.menuBarLink:link    
+{
+    /* Applies to unvisited links of class menuBar */
+    text-decoration:  none;
+    color: white;
+  } 
+  
+a.footerBarLink:link    
+{
+    /* Applies to unvisited links of class footerBar */
+    text-decoration:  none;
+    color: Green;
+  }   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
