@@ -1,10 +1,8 @@
 <?php require_once 'header.php'; ?>
 <?php require_once 'menubar.php'; ?>
 
-   
 
-
-<form method="post" action="user-actions.php" onsubmit="return checkform()">
+<form method="post" action="user-actions.php" onsubmit="return checkloginform()">
 
     <h1>Member Login</h1>
     
