@@ -1,6 +1,12 @@
 <?php 
     require_once 'connection.php';
+    session_start();
 
+    if (isset($_SESSION['email']))
+    {
+        header("Location: start.php");
+    }
+    
     if (!isset($_POST['signup']))
     {
         outputSignupForm("");
@@ -14,7 +20,7 @@
         }
         else
         {
-            header("Location: login.php");
+            header("Location: start.php");
         }
     }
 
@@ -61,7 +67,6 @@
                         {
                             return mysql_error();
                         }
-                        session_start();
                         $_SESSION['email'] = $email;
                         $_SESSION['firstName'] = $firstname;
                     }

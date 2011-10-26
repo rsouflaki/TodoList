@@ -1,6 +1,12 @@
 <?php
     require_once 'connection.php'; 
+    session_start();
 
+    if (isset($_SESSION['email']))
+    {
+        header("Location: start.php");
+    }
+    
     if (!isset($_POST['login']))
     {
         outputLoginForm("");
@@ -38,7 +44,6 @@
             {
                 if ($row = mysql_fetch_array($result))
                 {
-                    session_start();
                     $_SESSION['email'] = $row['Email'];
                     $_SESSION['firstName'] = $row['FirstName'];
                     return;
