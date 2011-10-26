@@ -1,7 +1,7 @@
 #wrapper
 {
-    width: 1024px;
-    margin: 0 auto;
+    width: 980px;
+    margin: auto;
     
 }
 
@@ -42,8 +42,8 @@
     text-align:center;
     position:relative;
     top:0px;
-    left:512px;
     width:50%;
+    margin-left:490px;
 }
 
 #footerbar th
