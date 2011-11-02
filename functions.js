@@ -13,3 +13,12 @@ function checksignupform()
     return true;
     //-->
 }
+
+
+function checkaddtaskform() 
+{
+    <!--
+    alert('ton poulo');
+    return true;
+    //-->
+}

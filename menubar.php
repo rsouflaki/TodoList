@@ -1,6 +1,6 @@
             <table id="menubar">
                 <tr>
-                    <th><a href="login.php" class="menuBarLink">Users</a></th>
+                    <th><a href="addtasks.php" class="menuBarLink">Add Tasks</a></th>
                     <th><a href="login.php" class="menuBarLink">Tasks</a></th>
                     <th><a href="login.php" class="menuBarLink">Sign In</a></th>
                 </tr>

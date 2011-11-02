@@ -1,5 +1,7 @@
 <?php
-    require_once 'connection.php'; 
+    require_once 'connection.php';
+    require_once 'header.php';
+    require_once 'menubar.php';
     session_start();
 
     if (isset($_SESSION['email']))
@@ -59,8 +61,6 @@
 
     function outputLoginForm($err)
     {
-        require_once 'header.php';
-        require_once 'menubar.php';
         if ($err)
         {
             echo "Error!: " . $err;
