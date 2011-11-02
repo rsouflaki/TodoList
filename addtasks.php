@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
     require_once 'header.php';
     require_once 'menubar.php';
     require_once 'userstatus.php';
@@ -21,7 +21,7 @@
         }
         else
         {
-            header("Location: start.php");
+            header("Location: addtasks.php");
         }
     }
     

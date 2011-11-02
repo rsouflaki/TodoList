@@ -1,4 +1,4 @@
-            <table id="footerbar">
+﻿            <table id="footerbar">
                 <tr>
                     <th><a href="login.php" class="footerBarLink">About Us</a></th>
                     <th><a href="login.php" class="footerBarLink">Terms & Conditions</a></th>
