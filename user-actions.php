@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require_once 'connection.php';
 
 if (isset($_POST['user-action'])) 
