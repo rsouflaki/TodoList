@@ -1,5 +1,4 @@
 ﻿<?php 
-    require_once 'connection.php';
     require_once 'header.php';
     require_once 'menubar.php';
     require_once 'userstatus.php';
