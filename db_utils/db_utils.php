@@ -29,7 +29,7 @@ if (isset($_GET['action']))
             dropTables(SQL_DB, $conn);
             break;
             
-        case 'insert':
+        case 'data':
             insertTestDataSet(SQL_DB, $conn);
             break;
     }
@@ -76,14 +76,14 @@ EOS;
   
     $sql = <<<EOS
         CREATE TABLE IF NOT EXISTS User (
-        UserID int(11) NOT NULL auto_increment,
+        UserId int(11) NOT NULL auto_increment,
         Email varchar(30) NOT NULL,
         Password varchar(15) NOT NULL,
         FirstName varchar(20) NOT NULL,
         LastName varchar(25) NOT NULL,
         Age int NOT NULL,
         AccessLevelId tinyint(4) NOT NULL,
-        PRIMARY KEY (UserID),
+        PRIMARY KEY (UserId),
         UNIQUE KEY UniqEmail(Email),
         FOREIGN KEY (AccessLevelId) REFERENCES AccessLevel(AccessLevelId))
 EOS;
@@ -94,9 +94,9 @@ EOS;
         CREATE TABLE IF NOT EXISTS List (
         ListId int(11) NOT NULL auto_increment,
         ListName varchar(30) NOT NULL,
-        UserID int(11) NOT NULL,
+        UserId int(11) NOT NULL,
         PRIMARY KEY (ListId),
-        FOREIGN KEY (UserID) REFERENCES User(UserID))
+        FOREIGN KEY (UserId) REFERENCES User(UserId))
 EOS;
     $result = mysql_query($sql, $conn) 
         or die('Could not create table:' . mysql_error());
@@ -124,6 +124,28 @@ function insertTestDataSet($dbName, $conn)
 {
     mysql_select_db($dbName, $conn)
         or die('Could not select database; ' . mysql_error());
+        
+    $sql = "INSERT IGNORE INTO User " .
+        "VALUES (1, 'something@yahoo.com', '12345', 'Andy', 'Smith', 32, 1), " .
+        "(2, 'something@gmail.com', '12345', 'Andy', 'Smith', 32, 2), " .
+        "(3, 'something@hotmail.com', '12345', 'Andy', 'Smith', 32, 3)";
+    $result = mysql_query($sql) 
+        or die(mysql_error());
+        
+    $sql = "INSERT IGNORE INTO List " .
+        "VALUES (1, 'shopping', 1), " .
+        "(2, 'home improvement', 1), " .
+        "(3, 'shopping', 2)";
+    $result = mysql_query($sql) 
+        or die(mysql_error());
+        
+    $sql = "INSERT IGNORE INTO Task " .
+        "VALUES (1, 'tomatoes', 23, 1), " .
+        "(2, 'potatoes', 35, 1), " .
+        "(3, 'fix heating', 60, 2), " . 
+        "(4, 'cheese', 25, 3)";
+    $result = mysql_query($sql) 
+        or die(mysql_error());
 }
 
 mysql_close($conn);

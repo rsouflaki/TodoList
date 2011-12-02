@@ -11,7 +11,7 @@ class Database
       if(!isset(self::$instance)) {
          // the MYSQL_* constants should be set to or
          //  replaced with your db connection details
-         self::$instance = new MySQLi(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_DB);
+         self::$instance = new MySQLi(SQL_HOST, SQL_USER, SQL_PASS, SQL_DB);
          if(self::$instance->connect_error) {
             throw new Exception('MySQL connection failed: ' . self::$instance->connect_error);
          }

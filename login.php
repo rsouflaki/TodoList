@@ -2,6 +2,8 @@
     require_once 'header.php';
     require_once 'menubar.php';
     require_once 'connection.php';
+    require_once 'classes/User.php';
+    
     session_start();
 
     if (isset($_SESSION['email']))
@@ -34,7 +36,17 @@
         }
         else
         {
-            $email = $_POST['email'];
+            $user = User::getUserFromDatabase($_POST['email'], $_POST['passwd']);
+            if ($user)
+            {
+                $_SESSION['email'] = $user->mEmail;
+                $_SESSION['firstName'] = $user->mFirstName;
+                return;
+            } 
+            else {
+                return "Could not find User!";
+            }
+            /*$email = $_POST['email'];
             $password = $_POST['passwd'];
             $sqlCommand = "SELECT * FROM Users WHERE Email='$email' AND Password='$password'";
             $result = mysql_query($sqlCommand, $connection);           
@@ -54,7 +66,7 @@
                 {
                     return "Unknown User!";
                 }
-            }
+            }*/
         }
     } 
 
