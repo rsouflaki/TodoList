@@ -1,4 +1,9 @@
 <?php
+define('SQL_HOST','localhost');
+define('SQL_USER','root');
+define('SQL_PASS','pasok');
+define('SQL_DB','todo_db');
+
 class Database
 {
    private static $instance; // stores the MySQLi instance
