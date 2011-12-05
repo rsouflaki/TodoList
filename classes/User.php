@@ -21,13 +21,18 @@ class User
         $this->mAccessLevelId = $accessLevelId;
     }
     
-    function isUser(String $email) 
+    static function isEmailUsed($email)
     {
-        return true;
-    }
-    
-    function insertInDatabase()
-    {
+        $sqlCommand = "SELECT * FROM User WHERE Email='$email'";
+        $result = Database::get()->query($sqlCommand);    
+        if ($result)
+        {
+            if ($row = mysqli_fetch_array($result))
+            {
+                return true;
+            }
+        }
+        return false;
     }
     
     static function getUserFromDatabase($email, $password)
@@ -41,6 +46,20 @@ class User
                 $user = new User($row['UserId'], $row['Email'], $row['Password'], $row['FirstName'], $row['LastName'], $row['Age'], $row['AccessLevelId']);
                 return $user;
             }
+        }
+        return null;
+    }
+    
+    static function insertToDatabase($email, $password, $firstName, $lastName, $age)
+    {
+        $accessLevelId = 1; // normal user, can't insert an admin from this API
+        $sqlCommand = "INSERT INTO User(Email, Password, FirstName, LastName, Age, AccessLevelId) VALUES ('$email', '$password', '$firstName', '$lastName', $age, 1)";        
+        $result = Database::get()->query($sqlCommand);
+        if ($result) 
+        {
+            $userId = Database::get()->insert_id;
+            $user = new User($userId, $email, $password, $firstName, $lastName, $age, $password, $accessLevelId);
+            return $user;
         }
         return null;
     }
