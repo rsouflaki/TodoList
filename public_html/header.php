@@ -5,6 +5,7 @@
         <title>To Do Site</title>
         <link rel="stylesheet" type="text/css" href="css/menuformating.css" />
         <script type="text/javascript" src="js/functions.js"></script>
+        <script type="text/javascript" src="js/checkEmail.js"></script>
     </head> 
     <body id="wrapper">
         <div id="pagestyle">

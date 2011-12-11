@@ -65,7 +65,7 @@ function outputSignupForm($err)
     <form method="post" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" onsubmit="return checksignupform()"> 
     <!--checksignupform is a javascript function from an external file called in the header-->
         <h1>Member Signup</h1>
-        <p>E-mail Address:</br><input type="text" name="email" maxlength="255" value=""></p>
+        <p>E-mail Address:</br><input type="text" name="email" maxlength="255" value="" onChange="checkEmail()"> <div id="emailCheck"></div></p>
         <p>Password:</br><input type="password" name="passwd" maxlength="50" value=""></p>
         <p>Repeat Password:</br><input type="password" name="repeatpasswd" maxlength="50" value=""></p>
         <p>First Name:</br><input type="text" name="firstname" maxlength="30" value=""></p>
