@@ -13,14 +13,15 @@ class TodoList
         $mUserId = NULL;
     }*/
     
-    function __construct($id, $listName, $userId) {
+    public function __construct($id, $listName, $userId)
+    {
         $this->mId = $id;
         $this->mListName = $listName;
         $this->mUserId = $userId;
     }
 
     // returns an array of todolists for a specific user
-    static function getListsFromDatabase($userId)
+    public static function getListsFromDatabase($userId)
     {
         $sqlCommand = "SELECT * FROM List WHERE UserId='$userId'";
         $result = Database::get()->query($sqlCommand);    
@@ -36,7 +37,7 @@ class TodoList
         return null;
     }
     
-    static function insertToDatabase($listName, $userId)
+    public static function insertToDatabase($listName, $userId)
     {
         $sqlCommand = "INSERT INTO List(ListName, UserId) VALUES ('$listName', '$userId')";        
         $result = Database::get()->query($sqlCommand);

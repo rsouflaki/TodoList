@@ -11,13 +11,16 @@ class Database
    private function __construct() { } // block directly instantiating
    private function __clone() { } // block cloning of the object
  
-   public static function get() {
+   public static function get()
+   {
       // create the instance if it does not exist
-      if(!isset(self::$instance)) {
+      if(!isset(self::$instance))
+      {
          // the MYSQL_* constants should be set to or
          //  replaced with your db connection details
          self::$instance = new MySQLi(SQL_HOST, SQL_USER, SQL_PASS, SQL_DB);
-         if(self::$instance->connect_error) {
+         if(self::$instance->connect_error)
+         {
             throw new Exception('MySQL connection failed: ' . self::$instance->connect_error);
          }
       }

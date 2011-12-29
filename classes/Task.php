@@ -8,7 +8,8 @@ class Task
     public $mEstimation;
     public $mListId;
 
-    function __construct($id, $taskName, $estimation, $listId) {
+    public function __construct($id, $taskName, $estimation, $listId)
+    {
         $this->mId = $id;
         $this->mTaskName = $taskName;
         $this->mEstimation = $estimation;
@@ -16,7 +17,7 @@ class Task
     }
 
     // returns an array of todolists for a specific user
-    static function getTasksFromDatabase($listId)
+    public static function getTasksFromDatabase($listId)
     {
         $sqlCommand = "SELECT * FROM Task WHERE ListId='$listId'";
         $result = Database::get()->query($sqlCommand);    
@@ -32,7 +33,7 @@ class Task
         return null;
     }
     
-    static function insertToDatabase($taskName, $estimation, $listId)
+    public static function insertToDatabase($taskName, $estimation, $listId)
     {
         $sqlCommand = "INSERT INTO Task(TaskName, Estimation, ListId) VALUES ('$taskName', '$estimation', '$listId')";        
         $result = Database::get()->query($sqlCommand);

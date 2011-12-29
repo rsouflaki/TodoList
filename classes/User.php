@@ -11,7 +11,7 @@ class User
     public $mAge;
     public $mAccessLevelId;
     
-    function __construct($id, $email, $password, $firstName, $lastName, $age, $accessLevelId) {
+    public function __construct($id, $email, $password, $firstName, $lastName, $age, $accessLevelId) {
         $this->mId = $id;
         $this->mEmail = $email;
         $this->mPassword = $password;
@@ -21,7 +21,7 @@ class User
         $this->mAccessLevelId = $accessLevelId;
     }
     
-    static function isEmailUsed($email)
+    public static function isEmailUsed($email)
     {
         $sqlCommand = "SELECT * FROM User WHERE Email='$email'";
         $result = Database::get()->query($sqlCommand);    
@@ -35,7 +35,7 @@ class User
         return false;
     }
     
-    static function getUserFromDatabase($email, $password)
+    public static function getUserFromDatabase($email, $password)
     {
         $sqlCommand = "SELECT * FROM User WHERE Email='$email' AND Password='$password'";
         $result = Database::get()->query($sqlCommand);    
@@ -50,7 +50,7 @@ class User
         return null;
     }
     
-    static function insertToDatabase($email, $password, $firstName, $lastName, $age)
+    public static function insertToDatabase($email, $password, $firstName, $lastName, $age)
     {
         $accessLevelId = 1; // normal user, can't insert an admin from this API
         $sqlCommand = "INSERT INTO User(Email, Password, FirstName, LastName, Age, AccessLevelId) VALUES ('$email', '$password', '$firstName', '$lastName', $age, 1)";        
